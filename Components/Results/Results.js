@@ -1,14 +1,14 @@
-import Thumbnail from "./Thumbnail/Thumbnail"
-function Results({results}) {
+import Thumbnail from "./Thumbnail/Thumbnail";
+import FlipMove from "react-flip-move"
+
+function Results({ results }) {
   return (
-    <div>
-        {
-            results.map(result =>(
-                <Thumbnail key={result.id} result={result}/>
-            ))
-        }
-    </div>
-  )
+    <FlipMove className="px-5 my-10 sm:grid md:grid-cols-2 xl:grid-cols-3 3xl:flex flex-wrap justify-center">
+      {results.map((result) => (
+        <Thumbnail key={result.id} result={result} />
+      ))}
+    </FlipMove>
+  );
 }
 
-export default Results
+export default Results;

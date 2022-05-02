@@ -4,7 +4,8 @@ import Header from "../Components/Header/Header"
 import Nav from "../Components/Nav/Nav"
 import Results from "../Components/Results/Results"
 import requests from '../Utilis/requests'
-const Home: NextPage = ({results}) => {
+const Home: NextPage = (props) => {
+  console.log(props)
   return (
     <div className="">
       <Head>
@@ -13,13 +14,13 @@ const Home: NextPage = ({results}) => {
       </Head>
       <Header />  
       <Nav />
-      <Results results={results} />
+      <Results results={props["results"]} />
     </div>
   )
 }
 
 //Server side render
-export async function getServerSideProps(context) {
+export async function getServerSideProps(context:any) {
   const genre = context.query.genre;
 
   const request = await fetch(
